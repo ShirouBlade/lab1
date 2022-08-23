@@ -249,14 +249,14 @@ void init_opengl(void)
 
 void physics()
 {
-       g. pos[0] +=g. dir;
-        if (g.pos[0] >= (g.xres-w)) {
-               g. pos[0] = (g.xres-w);
-               g. dir = -g.dir;
+       g.pos[0] +=g.dir;
+        if (g.pos[0] >= (g.xres-g.w)) {
+               g.pos[0] = (g.xres-g.w);
+               g.dir = -g.dir;
         }
         if (g.pos[0] <= g.w) {
-               g. pos[0] = g.w;
-               g. dir = -g.dir;
+               g.pos[0] = g.w;
+               g.dir = -g.dir;
         }
 
 }
@@ -276,6 +276,10 @@ void render()
 		glVertex2f( g.w, -g.w);
 	glEnd();
 	glPopMatrix();
+	if (xce.width < g.xres || xce.height < g.yres) {
+		glColor3ub(150, 160, 220);
+	}
+	
 
 }
 
