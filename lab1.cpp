@@ -27,6 +27,7 @@ public:
         float dir = 25.0f;
         float pos[2];
 	Global(); 
+	int orgx, orgy;
 } g;
 
 class X11_wrapper {
@@ -86,6 +87,9 @@ Global::Global()
 	dir = 25.0f;
 	pos[0]= 0.0f + w;
 	pos[1]=g.yres/2.0f;
+	orgx = 400;
+	orgy = 200;
+	
 
 }
 
@@ -276,10 +280,12 @@ void render()
 		glVertex2f( g.w, -g.w);
 	glEnd();
 	glPopMatrix();
-	if (xce.width < g.xres || xce.height < g.yres) {
-		glColor3ub(150, 160, 220);
+	if (g.orgx > g.xres || g.orgy > g.yres) {
+		glColor3ub((150 + g.orgx - g.xres), 160, 220);
 	}
-	
+	if (g.orgx < g.xres || g.orgy < g.yres) {
+		glcolor3ub(150, 160, (220 + g.xres - g.orgx))
+	}
 
 }
 
