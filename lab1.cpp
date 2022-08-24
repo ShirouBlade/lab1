@@ -270,13 +270,16 @@ void render()
 	//
 	glClear(GL_COLOR_BUFFER_BIT);
 	//Draw box.
-	int ColorC
+	int ColorB = 0;
 	glPushMatrix();
+	if (g.orgx == g.xres || g.orgy == g.yres) {
+		glColor3ub(150, 160, 220);
+	}
 	if (g.orgx > g.xres || g.orgy > g.yres) {
 		glColor3ub((150 + g.orgx - g.xres), 160, (220 - g.orgx + g.xres));
 	}
 	if (g.orgx < g.xres || g.orgy < g.yres) {
-		ColorC++
+		ColorB++
 		glColor3ub(150, 160, (220 + ColorC));
 	}
 	if (g.xres <= (2*g.w) || g.yres <= (2*g.w)) {
