@@ -271,17 +271,24 @@ void render()
 	glClear(GL_COLOR_BUFFER_BIT);
 	//Draw box.
 	glPushMatrix();
-	if (g.orgx == g.xres ) {
+	int ColorR = 0;
+	int ColorB = 0;
+	if (g.orgx == g.xres) {
 		glColor3ub(150, 160, 220);
 	}
-	if (g.orgx > g.xres ) {
-		glColor3ub(255, 0, 0);
+	if (g.orgx > g.xres) {
+		ColorR = g.orgx - g.xres;
+		glColor3ub((150 + ((21.0/80.0)*(ColorR))), (160 - ((2.0/5.0)*(ColorR))), (220 - ((11.0/20.0)*(ColorR))));
 	}
-	if (g.orgx < g.xres ) {
-		glColor3ub(0, 0, 255);
+	if (g.orgx < g.xres) {
+		ColorB = g.xres - g.orgx;
+		if (ColorB > 400) {
+			ColorB = 400;
+		}
+		glColor3ub((150 - ((3.0/8.0)*(ColorB))), (160 - ((2.0/5.0)*(ColorB))), (220 + ((7.0/80.0)*(ColorB))));
 	}
-	if (g.xres <= (2*g.w) || g.yres <= (2*g.w)) {
-		glColor3ub(0.1, 0.1, 0.1)
+	if (g.xres <= 2*(g.w)) {
+		glColor3ub(0.1, 0.1, 0.1);
 	}
 	glTranslatef(g.pos[0], g.pos[1], 0.0f);
 	glBegin(GL_QUADS);
