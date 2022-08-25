@@ -270,7 +270,6 @@ void render()
 	//
 	glClear(GL_COLOR_BUFFER_BIT);
 	//Draw box.
-	int ColorB = 0;
 	glPushMatrix();
 	if (g.orgx == g.xres ) {
 		glColor3ub(150, 160, 220);
@@ -282,7 +281,7 @@ void render()
 		glColor3ub(0, 0, 255);
 	}
 	if (g.xres <= (2*g.w) || g.yres <= (2*g.w)) {
-		glColor3ub(0.1, 0.1, 1.0)
+		glColor3ub(0.1, 0.1, 0.1)
 	}
 	glTranslatef(g.pos[0], g.pos[1], 0.0f);
 	glBegin(GL_QUADS);
