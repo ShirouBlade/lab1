@@ -288,7 +288,7 @@ void render()
 		glColor3ub((150 - ((3.0/8.0)*(ColorB))), (160 - ((2.0/5.0)*(ColorB))), (220 + ((7.0/80.0)*(ColorB))));
 	}
 	glTranslatef(g.pos[0], g.pos[1], 0.0f);
-	if (g.xres >= (2*g.w) || g.yres >= (2*g.w)) {
+	if (g.xres > (2*g.w)) {
 		glBegin(GL_QUADS);
 			glVertex2f(-g.w, -g.w);
 			glVertex2f(-g.w,  g.w);
