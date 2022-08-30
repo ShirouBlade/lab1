@@ -287,6 +287,12 @@ void render()
 		}
 		glColor3ub((150 - ((3.0/8.0)*(ColorB))), (160 - ((2.0/5.0)*(ColorB))), (220 + ((7.0/80.0)*(ColorB))));
 	}
+	if (g.pos[0] == (g.xres - g.w)) {
+		glColor3ub( 250, 0, 0);
+	}
+	if (g.pos[0] < 2*g.w ) {
+		glColor3ub( 250, 0, 0);	
+	}
 	glTranslatef(g.pos[0], g.pos[1], 0.0f);
 	if (g.xres > (2*g.w)) {
 		glBegin(GL_QUADS);
